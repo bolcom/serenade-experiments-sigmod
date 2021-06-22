@@ -5,16 +5,8 @@ authors = ["submission@sigmod2021.org"]
 edition = "2018"
 
 [[bin]]
-name = "dd_play"
-path = "src/bin/dd_play.rs"
-
-[[bin]]
 name = "dd_replay_from_file"
 path = "src/bin/dd_replay_from_file.rs"
-
-[[bin]]
-name = "replay_from_file"
-path = "src/bin/replay_from_file.rs"
 
 [dependencies]
 csv = "1.0"
