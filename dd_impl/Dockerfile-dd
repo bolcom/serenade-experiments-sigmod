@@ -1,0 +1,28 @@
+FROM adoptopenjdk/openjdk14:jdk-14.0.2_12
+
+WORKDIR /root
+
+RUN apt-get update
+RUN apt-get install -y curl build-essential python3
+
+# Get Google cloud SDK
+RUN curl -sSL https://sdk.cloud.google.com | bash
+ENV PATH $PATH:/root/google-cloud-sdk/bin
+
+COPY ./src src
+COPY ./Cargo.* .
+
+# Get Rust
+RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
+ENV PATH $PATH:/root/.cargo/bin
+
+# Trigger a dependency download so we can 'cargo build' in a disconnected environment
+RUN cargo build
+RUN cargo build --release
+RUN cargo clean
+
+COPY ./start_dd.sh .
+RUN chmod +x ./start_dd.sh
+
+ENTRYPOINT ["./start_dd.sh"]
+

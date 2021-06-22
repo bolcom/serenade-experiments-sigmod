@@ -15,10 +15,12 @@ cd python_impl
 source start_python.sh ${TRAINING_CSV_PATH} ${TEST_CSV_PATH} python_${OUTPUT_FILE}
 cd ${BASEDIR}
 
-cd rust_impl
-source start_dd.sh ${TRAINING_CSV_PATH} ${TEST_CSV_PATH} dd_${OUTPUT_FILE}
+cd rust_optimized_impl
 source start_rust.sh ${TRAINING_CSV_PATH} ${TEST_CSV_PATH} rust_${OUTPUT_FILE}
 cd ${BASEDIR}
 
+cd dd_impl
+source start_dd.sh ${TRAINING_CSV_PATH} ${TEST_CSV_PATH} dd_${OUTPUT_FILE}
+cd ${BASEDIR}
 
 
