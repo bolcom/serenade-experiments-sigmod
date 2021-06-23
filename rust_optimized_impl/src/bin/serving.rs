@@ -18,6 +18,9 @@ use serenade_optimized::dataframeutils::SharedHandlesAndConfig;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
+    // The serenade recommender service.
+    // By default it uses an index that is computed offline on billions of user-item interactions.
+    // It supports training data in a csv file via OfflineIndex::new_from_csv().
     let bind_address = "0.0.0.0:8080";
     let sample_size_m = 500;
     let neighborhood_size_k = 500;

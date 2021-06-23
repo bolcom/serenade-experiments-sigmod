@@ -12,6 +12,8 @@ use serenade_optimized::metrics::popularity::Popularity;
 
 fn main() {
 
+    // This tool can evaluate predictions made by computational models and stored as a file.
+    // Its needs access to the training data for the metrics 'popularity' and 'coverage'.
     let training_data_path = "../datasets/private-clicks-1m_train.txt";
     let predictions_file = "../java_impl/java_vsknn_predictions.txt";
 

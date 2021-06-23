@@ -26,6 +26,8 @@ use bencher::black_box;
 
 fn main() {
 
+    // Benchmark with different Rust-based variants of our index
+    // and similarity computation to validate the design choices of our index.
     let num_threads = 6;
 
     println!("index\tdataset\tm\tk\tduration / iter (ns)");

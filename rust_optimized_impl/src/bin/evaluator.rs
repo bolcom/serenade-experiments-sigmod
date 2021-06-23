@@ -16,6 +16,8 @@ use std::error::Error;
 
 
 fn main() {
+    // Train the model on a csv file and evaluate the predictions on the test dataset.
+    // Its writes the prediction latencies to disk.
     let n_most_recent_sessions = 1000;
     let neighborhood_size_k = 500;
     let qty_max_reco_results = 21;

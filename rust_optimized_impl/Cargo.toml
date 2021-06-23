@@ -13,19 +13,11 @@ name = "similarity_bench"
 path = "src/bin/similarity_bench.rs"
 
 [[bench]]
-name = "concurrent_hashmap_access"
-harness = false
-
-[[bench]]
 name = "weighted_intersection"
 harness = false
 
 [[bench]]
 name = "weighted_intersection_new"
-harness = false
-
-[[bench]]
-name = "linear_search"
 harness = false
 
 [[example]]
