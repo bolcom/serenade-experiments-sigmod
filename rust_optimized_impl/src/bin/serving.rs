@@ -30,8 +30,10 @@ async fn main() -> std::io::Result<()> {
         .parse()
         .expect("Unable to parse number of actix workers");
 
-    // let vsknn =  Arc::new(HashIndexVar::new(&training_data_path, sample_size_m));
+    // By default we use an index that is computed offline on billions of user-item interactions.
     let vsknn =  Arc::new(OfflineIndex::new(&training_data_path));
+    // The following line creates an index directly from a csv file as input.
+    // let vsknn =  Arc::new(OfflineIndex::new_from_csv(&training_data_path, sample_size_m));
 
     println!("start db");
     let session_ttl = Duration::from_secs(30 * 60);
