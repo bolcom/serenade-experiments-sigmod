@@ -8,19 +8,19 @@ LATENCY_FILE=vsknn_latencies.csv
 BASEDIR=$(pwd)
 
 cd java_impl
-source start.sh ${TRAINING_CSV_PATH} ${TEST_CSV_PATH} java_${OUTPUT_FILE}
+source start.sh ${TRAINING_CSV_PATH} ${TEST_CSV_PATH} java_${OUTPUT_FILE} java_${LATENCY_FILE}
 cd ${BASEDIR}
 
 cd python_impl
-source start_python.sh ${TRAINING_CSV_PATH} ${TEST_CSV_PATH} python_${OUTPUT_FILE}
+source start_python.sh ${TRAINING_CSV_PATH} ${TEST_CSV_PATH} python_${OUTPUT_FILE} python_${LATENCY_FILE}
 cd ${BASEDIR}
 
 cd rust_optimized_impl
-source start_rust.sh ${TRAINING_CSV_PATH} ${TEST_CSV_PATH} rust_${OUTPUT_FILE}
+source start_rust.sh ${TRAINING_CSV_PATH} ${TEST_CSV_PATH} rust_${OUTPUT_FILE} rust_${LATENCY_FILE}
 cd ${BASEDIR}
 
 cd dd_impl
-source start_dd.sh ${TRAINING_CSV_PATH} ${TEST_CSV_PATH} dd_${OUTPUT_FILE}
+source start_dd.sh ${TRAINING_CSV_PATH} ${TEST_CSV_PATH} dd_${OUTPUT_FILE} dd_${LATENCY_FILE}
 cd ${BASEDIR}
 
 

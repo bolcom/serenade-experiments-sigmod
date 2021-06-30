@@ -43,7 +43,7 @@ function do_run() {
 
 }
 
-
+mvn clean package
 do_run $training $test tmp_output.csv tmp_position_latency.csv
 
 if [[ $output == "gs://"* ]] ;
