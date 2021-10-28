@@ -1,0 +1,23 @@
+config_type = "toml"
+
+[server]
+host = "0.0.0.0"
+port = 8080
+num_workers = 4
+
+[log]
+level = "info" # not implemented
+
+[data]
+training_data_path=datasets/retailrocket9_train.txt
+
+[model]
+m_most_recent_sessions = 500
+neighborhood_size_k = 500
+num_items_to_recommend = 21
+max_items_in_session = 2
+
+[logic]
+enable_business_logic = "false"
+
+

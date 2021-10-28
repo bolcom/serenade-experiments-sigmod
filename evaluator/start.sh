@@ -11,4 +11,3 @@ for predictions in $(ls -1 *prediction*txt); do
   java $JAVA_OPTS -jar target/evaluator-0.0.1-SNAPSHOT-jar-with-dependencies.jar ${training} ${predictions}
 done
 
-
