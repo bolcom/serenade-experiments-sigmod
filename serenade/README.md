@@ -1,7 +1,7 @@
 # Session Based Recommendations
 This repository contains code for session-based recommender system Serenade.
-It learns users' preferences by capturing the short-term and sequential patterns from the evolution of user 
-behaviors and predicts interesting next items with low latency. 
+It learns users' preferences by capturing the short-term and sequential patterns from the evolution of user
+behaviors and predicts interesting next items with low latency.
 
 # Quick guide: getting started with Serenade.
 
@@ -99,14 +99,12 @@ The returned json object is a list with recommended items.
 
 ## Research experiments <a name="research-experiments"></a>
 
-The data for creating Figure 3 (a) "Offline and online performance of Serenade" in the paper was created using 
+The data for creating Figure 3 (a) "Offline and online performance of Serenade" in the paper was created using
 ```bash
-cargo build --release
-target/release/paper_micro_benchmark_runtimes
+cargo run --release --package serenade_optimized --bin paper_micro_benchmark_runtimes
 ```
 
 The data for creating Figure 2 "Sensitivity of MRR@20 and Prec@20 to the hyperparameters..." in the paper was created using
 ```bash
-cargo build --release
-target/release/paper_hyperparam_sensitivity 
+cargo run --release --package serenade_optimized --bin paper_hyperparam_sensitivity 
 ```

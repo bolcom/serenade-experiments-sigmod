@@ -8,10 +8,6 @@ edition = "2018"
 name = "serving"
 path = "src/bin/serving.rs"
 
-[[bin]]
-name = "similarity_bench"
-path = "src/bin/paper_micro_benchmark_runtimes.rs"
-
 [[bench]]
 name = "weighted_intersection"
 harness = false

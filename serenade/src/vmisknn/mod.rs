@@ -8,8 +8,9 @@ use crate::vmisknn::similarity_indexed::SimilarityComputationNew;
 use crate::vmisknn::offline_index::ProductAttributes;
 
 pub mod vsknn_index;
-pub mod vmisknn_index;
 pub mod vmisknn_index_noopt;
+pub mod vmisknn_index_smallopt;
+pub mod vmisknn_index;
 pub mod similarity_hashed;
 pub mod similarity_indexed;
 pub mod offline_index;
