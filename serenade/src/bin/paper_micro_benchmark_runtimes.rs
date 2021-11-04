@@ -27,7 +27,6 @@ use serenade_optimized::vmisknn::similarity_indexed::SimilarityComputationNew;
 use serenade_optimized::vmisknn::tree_index::TreeIndex;
 use serenade_optimized::vmisknn::vmisknn_index::VMISSkNNIndex;
 use serenade_optimized::vmisknn::vmisknn_index_noopt::VMISSkNNIndexNoOpt;
-use serenade_optimized::vmisknn::vmisknn_index_smallopt::VMISSkNNIndexSmallOpt;
 use serenade_optimized::vmisknn::vsknn_index::VSkNNIndex;
 
 #[derive(Debug)]
@@ -51,7 +50,7 @@ fn main() {
         .build_global()
         .unwrap();
 
-    let algorithms = vec!["vmis_noopt", "vmis", "vsknn", "vmis_smopt"];
+    let algorithms = vec!["vmis_noopt", "vmis", "vsknn"];
 
     for dataset in &["1m"] {
         for m in &[100, 250, 500, 1000] {
@@ -63,7 +62,6 @@ fn main() {
             let vmis_noopt_index = VMISSkNNIndexNoOpt::new(&path_train, *m);
             let vmis_index = VMISSkNNIndex::new(&path_train, *m);
             let vsknn_index = VSkNNIndex::new(historical_sessions, *m, 1_000_000);
-            let vmis_smallopt_index = VMISSkNNIndexSmallOpt::new(&path_train, *m);
             // let tree_index = TreeIndex::new(&path_train, *m);
 
             let mut test_sessions: HashMap<u32, Vec<u64>> = HashMap::new();
@@ -129,18 +127,6 @@ fn main() {
                             let elapsed = start.elapsed();
                             let result = MicroBenchmarkLine {
                                 index: algorithms.get(2).unwrap().deref_copy(),
-                                dataset: dataset,
-                                m: *m,
-                                k: *k,
-                                duration_ns: elapsed.as_nanos() as f64,
-                            };
-                            duration_sample.push(result);
-
-                            let start = Instant::now();
-                            black_box(vmis_smallopt_index.find_neighbors(&session, *k, *m));
-                            let elapsed = start.elapsed();
-                            let result = MicroBenchmarkLine {
-                                index: algorithms.get(3).unwrap().deref_copy(),
                                 dataset: dataset,
                                 m: *m,
                                 k: *k,

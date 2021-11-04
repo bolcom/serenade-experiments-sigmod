@@ -9,7 +9,6 @@ use crate::vmisknn::offline_index::ProductAttributes;
 
 pub mod vsknn_index;
 pub mod vmisknn_index_noopt;
-pub mod vmisknn_index_smallopt;
 pub mod vmisknn_index;
 pub mod similarity_hashed;
 pub mod similarity_indexed;
@@ -218,7 +217,7 @@ mod offline_index_test {
     use chrono::NaiveDateTime;
 
     use crate::dataframeutils::TrainingDataStats;
-    use crate::vmisknn::vmisknn_index_noopt::prepare_hashmap;
+    use crate::vmisknn::offline_index::prepare_hashmap;
     use crate::vmisknn::offline_index::OfflineIndex;
 
     use super::*;

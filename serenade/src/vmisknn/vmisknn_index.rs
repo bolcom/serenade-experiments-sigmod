@@ -188,7 +188,7 @@ fn binary_search_left(array: &[u64], key: u64) -> Result<usize, usize> {
     }
 }
 
-fn prepare_hashmap(
+pub(crate) fn prepare_hashmap(
     historical_sessions: &[Vec<u64>],
     timestamps: &[u32],
     n_most_recent_sessions: usize,

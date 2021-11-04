@@ -31,7 +31,7 @@ impl RocksDBSessionStore {
             )
                 .unwrap();
 
-        Self { rocks_db: rocks_db, max_session_idle_duration_in_seconds: 60 * 20  }
+        Self { rocks_db, max_session_idle_duration_in_seconds: 60 * 20  }
     }
 
     pub fn get_session_items(&self, evolving_session_id: &u128) -> Vec<u64> {
@@ -57,12 +57,12 @@ impl RocksDBSessionStore {
     }
 
     pub fn update_session_items(&self, evolving_session_id: &u128,
-                                session_items: &Vec<u64>) {
+                                session_items: &[u64]) {
         let serialized_session_id =
             bincode::serialize(evolving_session_id).unwrap();
         let now = self.get_seconds_since_epoch();
         let payload = DBValue {
-            session_items: session_items.clone(),
+            session_items: Vec::from(session_items),
             epoch_secs: now,
         };
         let bytes = bincode::serialize(&payload).unwrap();

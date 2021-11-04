@@ -37,9 +37,9 @@ impl SessionMetric for Recall {
             .take(cmp::min(recommendations.len(), self.length))
             .collect();
 
-        let next_items: HashSet<&u64> = next_items.iter().collect();
+        let unique_next_items: HashSet<&u64> = next_items.iter().collect();
 
-        let intersection = top_recos.intersection(&next_items);
+        let intersection = top_recos.intersection(&unique_next_items);
 
         self.sum_of_scores += intersection.count() as f64 / next_items.len() as f64
     }

@@ -114,10 +114,10 @@ fn read_from_file(
             }
         } else {
             let mut history_session_sorted = history_session.clone();
-            history_session_sorted.sort();
+            history_session_sorted.sort_unstable();
             historical_sessions.push(history_session_sorted);
             historical_sessions_id.push(history_session_id.clone());
-            historical_sessions_max_time_stamp.push(max_time_stamp.clone() as u32);
+            historical_sessions_max_time_stamp.push(max_time_stamp as u32);
             history_session.clear();
             history_session_id.clear();
             history_session.push(item_id_sorted[i]);
