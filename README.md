@@ -7,7 +7,7 @@ Each directory contains a README.md providing specific information for each proj
 
 
 # Citation
-> Serenade - Low-Latency Session-Based Recommendation in e-Commerce at Scale
+> [Serenade - Low-Latency Session-Based Recommendation in e-Commerce at Scale](https://ssc.io/pdf/modds003.pdf)
 
     @article{Kersbergen2022SerenadeScale,
         title = {{Serenade - Low-Latency Session-Based Recommendation in e-Commerce at Scale}},
