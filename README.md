@@ -1,7 +1,9 @@
 # Session-Based Recommendation experiments SIGMOD'22
 <img src="https://icai.ai/wp-content/uploads/2020/01/AIRLabAmsterdam-10-6-gecomprimeerd-transparant.png" width="250" align="right">
 
-This repository contains the official code for our experiments supporting the work on session-based recommendations.
+The repository for the Serenade Recommender System can be found here [Serenade: Low-Latency Session-Based Recommendations](https://github.com/bolcom/serenade)
+
+This repository contains the official code for our experiments supporting the work on session-based recommendations. 
 
 Each directory contains a README.md providing specific information for each project.
 
